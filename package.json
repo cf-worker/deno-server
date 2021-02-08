@@ -1,0 +1,24 @@
+{
+  "name": "deno-server",
+  "version": "0.0.0",
+  "description": "Cloudflare Worker HTTP local server using Deno to replace @cloudflare/wrangler",
+  "main": "index.js",
+  "prettier": "@atos6/prettier-config",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cf-worker/deno-server.git"
+  },
+  "keywords": [],
+  "author": "Marcos Neves <marcos.neves@gmail.com> (https://github.com/neves)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cf-worker/deno-server/issues"
+  },
+  "homepage": "https://github.com/cf-worker/deno-server#readme",
+  "devDependencies": {
+    "@atos6/prettier-config": "^0.0.2"
+  }
+}

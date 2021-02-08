@@ -1,0 +1,13 @@
+{
+  "name": "demo",
+  "version": "0.0.0",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "start": "deno run --unstable --watch -A ./server.deno.js",
+    "start:wrangler": "wrangler dev"
+  },
+  "devDependencies": {
+    "@cloudflare/wrangler": "^1.13.0"
+  }
+}
