@@ -8,5 +8,7 @@ import { requestHandler } from "./requestHandler.js"
 const port = +(Deno.env.get("PORT") || "8787")
 
 listenAndServe({ port }, forEach(logRequest, freezeDateNow, requestHandler))
-
-console.log("Listening on: http://0.0.0.0:" + port)
+const date = new Date().toJSON()
+console.log()
+console.log(date + " Listening on: http://0.0.0.0:" + port)
+console.log()

@@ -8,9 +8,10 @@ addEventListener("fetch", event => {
 
 // Root path
 addEventListener("fetch", event => {
-  if ("/" === new URL(event.request.url).pathname)
+  const url = new URL(event.request.url)
+  if ("/" === url.pathname)
     event.respondWith(
-      new Response(HTML, {
+      new Response(HTML({url: url.toString()}), {
         headers: { "Content-Type": "text/html" }
       })
     )
@@ -42,7 +43,7 @@ addEventListener("fetch", event => {
   event.respondWith(new Response("Not Found!", { status: 404 }))
 })
 
-const HTML = `<!DOCTYPE html>
+const HTML = props => `<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -52,6 +53,7 @@ const HTML = `<!DOCTYPE html>
   </head>
   <body>
     <h1>Cloudflare Worker Deno Server Demo</h1>
+    <h4>${props.url}</h4>
     <form method="post" action="/post" enctype="application/x-www-form-urlencoded">
       <input name="title" value="Deno Server" />
       <button type="submit">Send</button>
