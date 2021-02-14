@@ -6,7 +6,10 @@ export async function convertRequest(originalRequest) {
   // url contains just the pathname part,
   // extract the host from request origin
   const origin = originalRequest.headers.get("host") || "http://localhost:8787"
-  const url = origin + originalRequest.url
+  const protocol = originalRequest.proto.toLowerCase().startsWith("https")
+    ? "https"
+    : "http"
+  const url = protocol + "://" + origin + originalRequest.url
 
   // makes body compatible with Request body by reading it all in advance
   const body = await Deno.readAll(originalRequest.body)
