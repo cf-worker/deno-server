@@ -11,7 +11,7 @@ addEventListener("fetch", event => {
   const url = new URL(event.request.url)
   if ("/" === url.pathname)
     event.respondWith(
-      new Response(HTML({url: url.toString()}), {
+      new Response(HTML({ url: url.toString() }), {
         headers: { "Content-Type": "text/html" }
       })
     )
