@@ -10,9 +10,10 @@ export async function convertRequest(originalRequest) {
     ? "https"
     : "http"
   const url = protocol + "://" + origin + originalRequest.url
-
   // makes body compatible with Request body by reading it all in advance
-  const body = await Deno.readAll(originalRequest.body)
+  let body = await Deno.readAll(originalRequest.body)
+  // TypeError: HEAD and GET requests may not have a body
+  if (body.length === 0) body = null
 
   return new Request(url, {
     method: originalRequest.method,
